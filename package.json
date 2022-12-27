@@ -1,15 +1,18 @@
 {
   "dependencies": {
-    "moment": "^2.29.4"
+    "moment": "^2.29.4",
+    "typescript": "^4.9.4"
   },
   "devDependencies": {
     "@playwright/test": "^1.29.1",
-    "@types/moment": "^2.13.0"
+    "@types/node": "^18.11.18"
   },
   "name": "nutils",
   "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {},
+  "main": "dist/src/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
   "author": "",
   "license": "ISC",
   "description": ""
