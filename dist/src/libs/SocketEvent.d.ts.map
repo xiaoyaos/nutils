@@ -1,1 +1,1 @@
-{"version":3,"file":"SocketEvent.d.ts","sourceRoot":"","sources":["../../../src/libs/SocketEvent.js"],"names":[],"mappings":";;;AAEA;IACE;;;;;OAKG;IACH,gDAYC;IAED;;;;;OAKG;IACH,iDAYC;CACF"}
+{"version":3,"file":"SocketEvent.d.ts","sourceRoot":"","sources":["../../../src/libs/SocketEvent.ts"],"names":[],"mappings":";AAAA,OAAO,YAAY,MAAM,QAAQ,CAAC;AAElC,cAAM,SAAU,SAAQ,YAAY;IAClC;;;;;OAKG;IACG,MAAM,CAAC,KAAK,EAAC,MAAM,GAAG,MAAM,EAAE,QAAQ,EAAC,QAAQ;IAcrD;;;;;OAKG;IACG,OAAO,CAAC,KAAK,EAAC,MAAM,GAAG,MAAM,EAAE,QAAQ,CAAC,EAAC,QAAQ;CAaxD;;AAED,wBAA+B"}

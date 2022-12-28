@@ -1,6 +1,5 @@
 /// <reference types="node" />
-declare const _default: MyEmitter;
-export default _default;
+import EventEmitter from 'events';
 declare class MyEmitter extends EventEmitter {
     /**
      * 监听万为socket返回，利用事件监听来做数据处理，目前的弊端是很多逻辑都同步等待监听触发，否则同步等待
@@ -8,14 +7,15 @@ declare class MyEmitter extends EventEmitter {
      * @param callback 回调
      * @returns
      */
-    listen(event: any, callback: any): Promise<any>;
+    listen(event: string | symbol, callback: Function): Promise<unknown>;
     /**
      * 监听万为socket返回，利用事件监听来做数据处理，目前的弊端是很多逻辑都同步等待监听触发，否则同步等待
      * @param event 事件标识
      * @param callback 回调
      * @returns
      */
-    listens(event: any, callback: any): Promise<any>;
+    listens(event: string | symbol, callback?: Function): Promise<unknown>;
 }
-import EventEmitter from "events";
+declare const _default: MyEmitter;
+export default _default;
 //# sourceMappingURL=SocketEvent.d.ts.map
