@@ -7,7 +7,7 @@ class MyEmitter extends EventEmitter {
    * @param callback 回调
    * @returns 
    */
-  async listen(event:string | symbol, callback?:Function) {
+  async listen(event:string | symbol, callback?:Function):Promise<any> {
     if (callback) {
       this.once(event, (data) => {
         callback(data);
@@ -27,7 +27,7 @@ class MyEmitter extends EventEmitter {
    * @param callback 回调
    * @returns 
    */
-  async listens(event:string | symbol, callback?:Function) {
+  async listens(event:string | symbol, callback?:Function):Promise<any> {
     if (callback) {
       this.on(event, (data) => {
         callback(data);
