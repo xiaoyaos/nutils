@@ -8,12 +8,12 @@ class DataCalculator {
     originalData;
     newData;
     primary_key;
-    constructor(originalData, newData, primary_key) {
-        this.originalData = originalData;
-        this.newData = newData;
+    constructor(primary_key) {
         this.primary_key = primary_key;
     }
-    calculateChanges() {
+    calculateChanges(originalData, newData) {
+        this.originalData = originalData;
+        this.newData = newData;
         const added = [];
         const updated = [];
         const deleted = [];

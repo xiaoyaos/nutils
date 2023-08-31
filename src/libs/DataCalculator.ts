@@ -13,13 +13,14 @@ export class DataCalculator<T extends { [x: string]: any }> {
     private newData: T[];
     private primary_key: string;
 
-    constructor(originalData: T[], newData: T[], primary_key: string) {
-        this.originalData = originalData;
-        this.newData = newData;
+    constructor(primary_key: string) {
         this.primary_key = primary_key;
     }
 
-    calculateChanges(): ICalculator<T> {
+    calculateChanges(originalData: T[], newData: T[]): ICalculator<T> {
+        this.originalData = originalData;
+        this.newData = newData;
+
         const added: T[] = [];
         const updated: T[] = [];
         const deleted: T[] = [];
