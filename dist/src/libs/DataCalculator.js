@@ -1,9 +1,9 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.DataCalculator = void 0;
 /**
  * 根据原始数据计算新数据需要新增、删除、更新的数据
  */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.DataCalculator = void 0;
 class DataCalculator {
     originalData;
     newData;

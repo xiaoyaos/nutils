@@ -1,6 +1,13 @@
 /**
  * 根据原始数据计算新数据需要新增、删除、更新的数据
  */
+export interface ICalculator<T extends {
+    [x: string]: any;
+}> {
+    added: T[];
+    updated: T[];
+    deleted: T[];
+}
 export declare class DataCalculator<T extends {
     [x: string]: any;
 }> {
@@ -8,11 +15,7 @@ export declare class DataCalculator<T extends {
     private newData;
     private primary_key;
     constructor(originalData: T[], newData: T[], primary_key: string);
-    calculateChanges(): {
-        added: T[];
-        updated: T[];
-        deleted: T[];
-    };
+    calculateChanges(): ICalculator<T>;
     private areObjectsEqual;
 }
 //# sourceMappingURL=DataCalculator.d.ts.map

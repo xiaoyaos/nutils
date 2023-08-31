@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { DataCalculator } from '../src/index'
+import { DataCalculator, ICalculator } from '../src/index'
 
 test.describe.serial('[DateStep] 数据计算', () => {
   test('[正常测试] 数据计算', async ({ }) => {
@@ -15,7 +15,7 @@ test.describe.serial('[DateStep] 数据计算', () => {
     }
 
     const dataCalculator = new DataCalculator(ori_data, new_data, 'key');
-    const result = dataCalculator.calculateChanges();
+    const result:ICalculator<any> = dataCalculator.calculateChanges();
     
     expect(result).toHaveProperty('added')
     expect(result).toHaveProperty('updated')

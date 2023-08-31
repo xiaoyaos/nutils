@@ -1,6 +1,13 @@
 /**
  * 根据原始数据计算新数据需要新增、删除、更新的数据
  */
+
+export interface ICalculator<T extends { [x: string]: any }> {
+    added: T[];
+    updated: T[];
+    deleted: T[];
+}
+
 export class DataCalculator<T extends { [x: string]: any }> {
     private originalData: T[];
     private newData: T[];
@@ -12,11 +19,7 @@ export class DataCalculator<T extends { [x: string]: any }> {
         this.primary_key = primary_key;
     }
 
-    calculateChanges(): {
-        added: T[];
-        updated: T[];
-        deleted: T[];
-    } {
+    calculateChanges(): ICalculator<T> {
         const added: T[] = [];
         const updated: T[] = [];
         const deleted: T[] = [];
@@ -24,7 +27,7 @@ export class DataCalculator<T extends { [x: string]: any }> {
         // 创建原始数据的映射，以便查找
         const originalDataMap = new Map<number, T>();
         this.originalData.forEach((item) => {
-            if (item[this.primary_key] == undefined){
+            if (item[this.primary_key] == undefined) {
                 throw new Error(`primary_key: ${this.primary_key} deficiency`)
             }
             originalDataMap.set(item[this.primary_key], item);
