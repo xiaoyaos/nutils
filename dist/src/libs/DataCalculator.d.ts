@@ -15,7 +15,7 @@ export declare class DataCalculator<T extends {
     private newData;
     private primary_key;
     constructor(primary_key: string);
-    calculateChanges(originalData: T[], newData: T[], exclude_keys?: string[]): ICalculator<T>;
+    calculateChanges(originalData: T[], newData: T[], contain_keys?: string[]): ICalculator<T>;
     private areObjectsEqual;
 }
 //# sourceMappingURL=DataCalculator.d.ts.map

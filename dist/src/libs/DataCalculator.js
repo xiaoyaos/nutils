@@ -11,7 +11,7 @@ class DataCalculator {
     constructor(primary_key) {
         this.primary_key = primary_key;
     }
-    calculateChanges(originalData, newData, exclude_keys = []) {
+    calculateChanges(originalData, newData, contain_keys = []) {
         this.originalData = originalData;
         this.newData = newData;
         const added = [];
@@ -34,14 +34,16 @@ class DataCalculator {
             }
             else if (!this.areObjectsEqual(newItem, originalItem)) {
                 // 原始数据存在，但与新数据不同，表示更新
-                if (exclude_keys.length) {
+                if (contain_keys.length) {
                     let _newItem = JSON.parse(JSON.stringify(newItem));
                     let _originalItem = JSON.parse(JSON.stringify(originalItem));
-                    for (const exclude_key of exclude_keys) {
-                        delete _newItem[exclude_key];
-                        delete _originalItem[exclude_key];
+                    let equal = true;
+                    for (const contain_key of contain_keys) {
+                        if (_newItem[contain_key] !== _originalItem[contain_key]) {
+                            equal = false;
+                        }
                     }
-                    if (!this.areObjectsEqual(_newItem, _originalItem)) {
+                    if (equal === false) {
                         updated.push(newItem);
                     }
                 }
