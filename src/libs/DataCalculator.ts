@@ -17,7 +17,7 @@ export class DataCalculator<T extends { [x: string]: any }> {
         this.primary_key = primary_key;
     }
 
-    calculateChanges(originalData: T[], newData: T[]): ICalculator<T> {
+    calculateChanges(originalData: T[], newData: T[], exclude_keys: string[] = []): ICalculator<T> {
         this.originalData = originalData;
         this.newData = newData;
 
@@ -42,7 +42,19 @@ export class DataCalculator<T extends { [x: string]: any }> {
                 added.push(newItem);
             } else if (!this.areObjectsEqual(newItem, originalItem)) {
                 // 原始数据存在，但与新数据不同，表示更新
-                updated.push(newItem);
+                if (exclude_keys.length) {
+                    let _newItem = JSON.parse(JSON.stringify(newItem));
+                    let _originalItem = JSON.parse(JSON.stringify(originalItem));
+                    for (const exclude_key of exclude_keys) {
+                        delete _newItem[exclude_key]
+                        delete _originalItem[exclude_key]
+                    }
+                    if (!this.areObjectsEqual(_newItem, _originalItem)) {
+                        updated.push(newItem);
+                    }
+                } else {
+                    updated.push(newItem);
+                }
             }
         });
 
