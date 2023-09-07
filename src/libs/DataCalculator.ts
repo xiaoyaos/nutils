@@ -36,7 +36,7 @@ export class DataCalculator<T extends { [x: string]: any }> {
 
         // 检查新数据
         this.newData.forEach((newItem) => {
-            const originalItem = originalDataMap.get(newItem.id);
+            const originalItem = originalDataMap.get(newItem[this.primary_key]);
             if (!originalItem) {
                 // 新数据中找不到对应的原始数据，表示新增
                 added.push(newItem);
@@ -48,7 +48,7 @@ export class DataCalculator<T extends { [x: string]: any }> {
 
         // 检查删除的数据
         this.originalData.forEach((originalItem) => {
-            if (!this.newData.find((newItem) => newItem.id === originalItem.id)) {
+            if (!this.newData.find((newItem) => newItem[this.primary_key] === originalItem[this.primary_key])) {
                 // 在新数据中找不到对应的原始数据，表示删除
                 deleted.push(originalItem);
             }
