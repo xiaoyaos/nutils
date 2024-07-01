@@ -13,7 +13,12 @@ var __createBinding = (this && this.__createBinding) || (Object.create ? (functi
 var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.SocketEvent = void 0;
 __exportStar(require("./libs/DateStep"), exports);
-__exportStar(require("./libs/SocketEvent"), exports);
+var SocketEvent_1 = require("./libs/SocketEvent");
+Object.defineProperty(exports, "SocketEvent", { enumerable: true, get: function () { return __importDefault(SocketEvent_1).default; } });
 __exportStar(require("./libs/DataCalculator"), exports);

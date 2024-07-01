@@ -22,5 +22,6 @@ export function DateStep(interval: moment.unitOfTime.DurationConstructor, startT
   // if(interval == 'day' || interval == 'days'){
   dayArr.push(moment(new Date(endTime)).format(format))
   // }
+  dayArr = Array.from(new Set(dayArr))
   return dayArr
 }

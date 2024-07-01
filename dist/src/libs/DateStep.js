@@ -27,6 +27,7 @@ function DateStep(interval, startTime, endTime, format = 'YYYY-MM-DD HH:mm:ss') 
     // if(interval == 'day' || interval == 'days'){
     dayArr.push((0, moment_1.default)(new Date(endTime)).format(format));
     // }
+    dayArr = Array.from(new Set(dayArr));
     return dayArr;
 }
 exports.DateStep = DateStep;
