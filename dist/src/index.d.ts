@@ -1,4 +1,4 @@
-export * from "./libs/DateStep";
-export { default as SocketEvent } from "./libs/SocketEvent";
+export * from "./libs/CustomEmitter";
 export * from "./libs/DataCalculator";
+export * from "./libs/DateStep";
 //# sourceMappingURL=index.d.ts.map

@@ -1,6 +1,6 @@
 /// <reference types="node" />
 import EventEmitter from 'events';
-export declare class MyEmitter extends EventEmitter {
+export declare class CustomEmitter extends EventEmitter {
     /**
      * 监听万为socket返回，利用事件监听来做数据处理，目前的弊端是很多逻辑都同步等待监听触发，否则同步等待
      * @param event 事件标识
@@ -16,4 +16,4 @@ export declare class MyEmitter extends EventEmitter {
      */
     listens(event: string | symbol, callback?: Function): Promise<any>;
 }
-//# sourceMappingURL=SocketEvent.d.ts.map
+//# sourceMappingURL=CustomEmitter.d.ts.map
