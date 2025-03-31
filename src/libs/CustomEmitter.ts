@@ -7,7 +7,8 @@ export class CustomEmitter extends EventEmitter {
    * @param callback 回调
    * @returns 
    */
-  async listen(event:string | symbol, callback?:Function):Promise<any> {
+  async listen(event: string | number | symbol, callback?: Function): Promise<any> {
+    if (typeof event === 'number') event = event.toString()
     if (callback) {
       this.once(event, (data) => {
         callback(data);
@@ -27,7 +28,8 @@ export class CustomEmitter extends EventEmitter {
    * @param callback 回调
    * @returns 
    */
-  async listens(event:string | symbol, callback?:Function):Promise<any> {
+  async listens(event: string | number |symbol, callback?: Function): Promise<any> {
+    if (typeof event === 'number') event = event.toString()
     if (callback) {
       this.on(event, (data) => {
         callback(data);
